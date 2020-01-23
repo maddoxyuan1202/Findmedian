@@ -1,31 +1,25 @@
 #include "src/lib/solution.h"
 #include "gtest/gtest.h"
-#include <vector>
+using namespace std; 
 
-TEST(FindMaxTest, HandlesConsecutiveNumbers) {
+TEST(FindmeidanTest, HandlesConsecutiveNumbers) {
   Solution solution;
-  std::vector<int> inputs = {1, 2, 3, 4};
-  EXPECT_EQ(solution.FindMax(inputs), 4);
-  EXPECT_EQ(solution.FindMaxRecursive(inputs), 4);
+  int a[] = {1, 2, 3, 4};
+  int n = sizeof(a)/sizeof(a[0]); 
+  EXPECT_EQ(solution.findMedian(a, n), 2.5);
+  
 }
 
-TEST(FindMaxTest, HandlesConsecutiveNumbersOddLength) {
+TEST(FindmedianTest, HandlesConsecutiveNumbersOddLength) {
   Solution solution;
-  std::vector<int> inputs = {1, 2, 3, 4, -1};
-  EXPECT_EQ(solution.FindMax(inputs), 4);
-  EXPECT_EQ(solution.FindMaxRecursive(inputs), 4);
+  int a[] = {1, 2, 3, 4, -1};
+  int n = sizeof(a)/sizeof(a[0]); 
+  EXPECT_EQ(solution.findMedian(a,n), 2);
 }
 
-TEST(FindMaxTest, HandlesSizeOne) {
+TEST(FindmedianTest, HandlesSizeOne) {
   Solution solution;
-  std::vector<int> inputs = {2};
-  EXPECT_EQ(solution.FindMax(inputs), 2);
-  EXPECT_EQ(solution.FindMaxRecursive(inputs), 2);
-}
-
-TEST(FindMaxTest, HandlesEmptyVector) {
-  Solution solution;
-  std::vector<int> inputs = {};
-  EXPECT_EQ(solution.FindMax(inputs), -1);
-  EXPECT_EQ(solution.FindMaxRecursive(inputs), -1);
+  int a[] = {1};
+  int n = sizeof(a)/sizeof(a[0]); 
+  EXPECT_EQ(solution.findMedian(a, n), 1);
 }
